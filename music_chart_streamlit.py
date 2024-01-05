@@ -29,7 +29,7 @@ def cr_most_listening_sort():
     column_to_display = ['rank','track_name','artist(s)_name','streams']
     return most_listening_sort[column_to_display].head(10).reset_index(drop=True)
 
-st.title('Most Listening Songs All time :musical_note:')
+st.title('Most Listening Songs in 2023 :musical_note:')
 result_most_listening = cr_most_listening_sort()
 st.dataframe(result_most_listening, use_container_width=True)
 
@@ -41,7 +41,7 @@ def cr_top_artists():
     columns_to_display = ['rank','artist(s)_name', 'streams']
     return top_artists[columns_to_display].head(10).reset_index(drop=True)
 
-st.title('Top Artist All time :microphone:')
+st.title('Top Artist in 2023 :microphone:')
 result_top_artists= cr_top_artists()
 st.dataframe(result_top_artists, use_container_width=True)
 #Most listening song by platform
@@ -62,7 +62,7 @@ def cr_most_listening_platform(data, platform):
     columns_to_display = ['rank', 'track_name', 'artist(s)_name']
     return most_listening_sort[columns_to_display].head(10).reset_index(drop=True)
 
-st.title('Most Listening Songs by Platform :iphone:')
+st.title('Most Listening Songs by Platform in 2023 :iphone:')
 platform_choice = st.selectbox('Choose Platform', ['Spotify', 'Apple', 'Deezer', 'Shazam'], key=key1)
 if platform_choice:
     result = cr_most_listening_platform(music_data_df, platform_choice)    
@@ -79,7 +79,7 @@ def cr_top_artists_platform(data, platform):
     columns_to_display = ['rank','artist(s)_name']
     return top_artists[columns_to_display].head(10).reset_index(drop=True)
 
-st.title('Top Artist by Platform :iphone:')
+st.title('Top Artist by Platform in 2023 :iphone:')
 platform_choice = st.selectbox('Choose Platform', ['Spotify', 'Apple', 'Deezer', 'Shazam'], key=key2)
 if platform_choice:
     result = cr_top_artists_platform(music_data_df, platform_choice)    
@@ -95,7 +95,7 @@ def cr_music_data_filter(year):
     columns_to_display = ['rank','track_name', 'artist(s)_name', 'streams']
     return most_listening_sort[columns_to_display].head(10).reset_index(drop=True)
 
-st.title('Most listening song by year :calendar:')
+st.title('Most listening song by released year in 2023 :calendar:')
 unique_years = sorted(music_data_df['released_year'].unique(), reverse=True)
 selected_year = st.selectbox('Choose Year', unique_years, key=key3)
 result_most_listening_byyear = cr_music_data_filter(selected_year)
@@ -110,7 +110,7 @@ def cr_music_data_filter(year):
     columns_to_display = ['rank', 'artist(s)_name', 'streams']
     return most_listening_year[columns_to_display].head(10).reset_index(drop=True)
 
-st.title('Top Artist(s) by year :calendar:')
+st.title('Top Artists by Year of Song Release in 2023 :calendar:')
 unique_years = sorted(music_data_df['released_year'].unique(), reverse=True)
 selected_year = st.selectbox('Choose Year', unique_years, key=key4)
 result_top_artists_year = cr_music_data_filter(selected_year)
