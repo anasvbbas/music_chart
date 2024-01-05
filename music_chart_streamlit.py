@@ -115,3 +115,6 @@ unique_years = sorted(music_data_df['released_year'].unique(), reverse=True)
 selected_year = st.selectbox('Choose Year', unique_years, key=key4)
 result_top_artists_year = cr_music_data_filter(selected_year)
 st.dataframe(result_top_artists_year, use_container_width=True)
+
+st.write("---")
+st.write("©Anasvbbas ")
